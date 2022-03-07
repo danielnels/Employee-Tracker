@@ -39,7 +39,8 @@ function Options() {
         "Add Role",
         "Add Employee",
         "Update Employee Role",
-        "Delete Employee",]
+        "Delete Employee",
+        "Leave Employee Tracker",]
     }
   ])
 
@@ -67,6 +68,9 @@ function Options() {
       }
       if (answers.Options === "Delete Employee") {
         deleteEmployee();
+      }
+      if (answers.Options === "Quit") {
+        quit();
       }
     })
 };
@@ -269,4 +273,9 @@ function deleteEmployee() {
         console.log(err);
       })
   });
+}
+
+function quit() {
+  console.log("Goodbye!");
+  db.end();
 }
