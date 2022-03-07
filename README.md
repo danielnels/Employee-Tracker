@@ -10,7 +10,7 @@
   * [This Weeks task](#this-weeks-task)
   * [Acceptance Criteria](#acceptance-criteria )
   * [Walkthrough Video](#walkthrough-video)
-  * [Deployed Application Link](#deployed-application-link)
+  * [Application Link](#application-link)
   * [Usage](#usage)
   * [Technologies Used](#technologies-used)
   * [Packages](#packages)
