@@ -79,6 +79,10 @@ To automatically install dev dependencies, run "npm i"
 
 
 
+https://user-images.githubusercontent.com/94213022/156964917-c699dd77-a334-4f16-8229-9703519505b3.mp4
+
+
+
 ## Deployed Application Link
 https://github.com/danielnels/Employee-Tracker.git
 
