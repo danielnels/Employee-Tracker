@@ -1,3 +1,5 @@
+// requiering dependencies 
+
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 
@@ -43,7 +45,7 @@ function Options() {
         "Leave Employee Tracker",]
     }
   ])
-
+// Creating answer menthods
     .then((answers) => {
       if (answers.Options === "View All Departments") {
         viewDepartments();
@@ -103,7 +105,7 @@ function viewRoles() {
     Options();
   })
 };
-
+// Creating user input fuctions to change the database
 function addDepartment() {
   return inquirer.prompt([
     {
