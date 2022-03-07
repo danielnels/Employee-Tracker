@@ -1,14 +1,16 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 
+
+// Using .env to hide my detils
 require('dotenv').config()
 const db = mysql.createConnection(
   {
     host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        port: process.env.DB_PORT,
-        password: process.env.DB_PASSWORD,
-        database: 'employeetracker_db'
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: 'employeetracker_db'
   },
 );
 
@@ -17,6 +19,8 @@ db.connect((err) => {
     throw error;
   }
 });
+
+// Listing user options 
 
 Options()
 
@@ -27,7 +31,15 @@ function Options() {
       type: "list",
       name: "Options",
       message: "What would you like to do?",
-      choices: ["View All Departments", "View All Roles", "View All Employees", "Add Department", "Add Role", "Add Employee", "Update Employee Role",]
+      choices: [
+        "View All Departments",
+        "View All Roles",
+        "View All Employees",
+        "Add Department",
+        "Add Role",
+        "Add Employee",
+        "Update Employee Role",
+        "Delete Employee",]
     }
   ])
 
@@ -53,9 +65,13 @@ function Options() {
       if (answers.Options === "Update Employee Role") {
         updateEmployee();
       }
+      if (answers.Options === "Delete Employee") {
+        deleteEmployee();
+      }
     })
 };
 
+// Vewing table functions 
 
 function viewDepartments() {
   db.query('SELECT * FROM employeetracker_db.department;', function (err, results) {
@@ -222,3 +238,35 @@ function updateEmployee() {
       })
   })
 };
+
+function deleteEmployee() {
+  db.query('SELECT * FROM employeetracker_db.employee;', (err, res) => {
+    if (err) throw err;
+
+    const chosenEmployee = [];
+    res.forEach(({ first_name, last_name, id }) => {
+      chosenEmployee.push({
+        name: first_name + " " + last_name,
+        value: id
+      });
+    });
+    let firedEmployee = [{
+      type: "list",
+      name: "id",
+      choices: chosenEmployee,
+      message: "Which employee is being deleted?"
+    }]
+    inquirer.prompt(firedEmployee)
+      .then(response => {
+        const query = `DELETE FROM EMPLOYEE WHERE id = ?`;
+        db.query(query, [response.id], (err, res) => {
+          if (err) throw err;
+          console.log(`${res.affectedRows} row(s) succesfully deleted!`);
+          Options();
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  });
+}

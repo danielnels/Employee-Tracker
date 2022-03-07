@@ -1,5 +1,5 @@
 # Employee-Tracker
- A command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+
 ## Description
  A command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
 
@@ -55,7 +55,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 ## Usage
 To use this application:
 
-Clone the GitHub repository at:
+Clone the GitHub repository at:https://github.com/danielnels/Employee-Tracker.git
 Download and install node.js.
 
 To automatically install dev dependencies, run "npm i" 
@@ -63,15 +63,15 @@ To automatically install dev dependencies, run "npm i"
 ## Technologies Used
 
 #### Node.js
-#### Express.js
 #### MySQL2
 
 
 ## Packages
 
 #### Package.json
-#### npm Enquirer
-#### npm MySQL2
+#### npm Inquirer
+#### npm MySQL
+#### npm dotenv
 
 
 
@@ -80,7 +80,7 @@ To automatically install dev dependencies, run "npm i"
 
 
 ## Deployed Application Link
-
+https://github.com/danielnels/Employee-Tracker.git
 
 ## Questions
   Please e-mail me if you have any questions about this App

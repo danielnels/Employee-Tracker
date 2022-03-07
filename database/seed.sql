@@ -5,7 +5,7 @@ INSERT INTO department (name)
 VALUES("Front-End"),
 ("Back-End"),
 ("API-Team"),
-("Debug"),
+("CSS"),
 ("Boss");
 
 INSERT INTO role (title, salary, department_id)
@@ -20,7 +20,8 @@ VALUES ("API Lead", 100000, 3),
 ("Manager", 300000, 5);
         
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-	VALUES ("Joseph", "Lee", 3, NULL),
+	VALUES 
+("Joe", "Strauss", 3, NULL),
 ("Robert", "Tan", 1, NULL),
 ("Frank", "Nelson", 7, 3),
 ("Sam", "Collura", 4, NULL),
