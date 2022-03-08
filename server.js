@@ -9,7 +9,7 @@ const mysql = require('mysql2');
 
 
 
-
+// Using .env to hide my detils
 const db = mysql.createConnection(
   {
     host: process.env.DB_HOST,
